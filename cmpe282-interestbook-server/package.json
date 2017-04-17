@@ -1,0 +1,17 @@
+{
+  "name": "Interestbook",
+  "version": "1.0.0",
+  "description": "demo",
+  "main": "server.js",
+  "dependencies": {
+    "amqplib": "^0.4.1",
+    "mongodb":"^2.1.18"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Interestbook",
+  "license": "ISC"
+}

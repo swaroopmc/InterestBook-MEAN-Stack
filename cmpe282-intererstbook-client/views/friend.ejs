@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html ng-app="friendApp">
+<head>
+<script src="/angular/jquery.mini.js"></script>
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular-animate.js"></script>
+<script src="/angular/ui-bootstrap-tpls-0.13.4.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/angular/myFriend.js"></script>
+<link rel='stylesheet' href='/bootstrap/css/bootstrap.min.css' />
+<title><%=title%></title>
+</head>
+<body ng-controller="friendCtrl">
+	<div class="row">
+		<div class="col-md-4" align=center>Hi, <%=firstname%>
+			<%=lastname%></div>
+		<div class="col-md-7" align=center>
+			<form action="logout" method="post">
+			<button type="submit">Log Out</button>
+			</form>
+		</div>
+	</div>
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<ul class="nav nav-tabs">
+			<li role="presentation"><a href="homepage">Home Page</a></li>
+			<li role="presentation"><a href="about">About</a></li>
+			<li role="presentation"><a href="interest">Interest</a></li>
+			<li role="presentation" class="active"><a href="friend">Friends</a></li>
+
+		</ul>
+	</div>
+	<div class="col-md-2"></div>
+	<div class="row">
+
+		<div class="col-lg-3"></div>
+		<!-- /.col-lg-6 -->
+		<div class="col-lg-6">
+			<div class="input-group">
+				<span class="input-group-btn"> <input type="text"
+					class="form-control" placeholder="Search for..." name="friendName"
+					ng-model="friendName">
+					<button class="btn btn-default" type="submit" ng-click="search()">Search</button>
+				</span>
+				<div class="alert alert-danger" ng-hide="invalid_friend">
+					<strong>User Not Found</strong>
+				</div>
+			</div>
+			<!-- /input-group -->
+		</div>
+		<div class="col-lg-3"></div>
+		<!-- /.col-lg-6 -->
+	</div>
+	<!-- /.row -->
+	<div class="row" ng-hide="search_friend">
+		<div class="col-md-2"></div>
+		<div class="col-md-8" ng-model="searchList">
+			<h1>Search List</h1>
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="search in searchList">
+					{{search.firstname + " " + search.lastname}}
+					<button type="button" class="btn btn-primary btn-sm pull-right"
+						ng-click="sendRequest(search)">Send Request</button>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	<div class="row">
+
+		<div class="col-md-2" ng-model="friendListName"></div>
+		<div class="col-md-8">
+			<h1>{{friendListName}}</h1>
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="friend in friendList">
+					{{friend.friendName}}</li>
+			</ul>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	<div class="row" ng-hide="requestListWarning">
+
+		<div class="col-md-2"></div>
+		<div class="col-md-8" ng-model="requestList">
+			<h1>Request List</h1>
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="request in requestList">{{request.name}}
+					<button type="button" class="btn btn-primary btn-sm pull-right"
+						ng-click="addFriend(request)">Add</button>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+
+</body>
+</html>

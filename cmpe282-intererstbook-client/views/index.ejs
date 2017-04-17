@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html ng-app="interestbookApp">
+<head>
+<script src="/angular/jquery.mini.js"></script>
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular-animate.js"></script>
+<script src="/angular/ui-bootstrap-tpls-0.13.4.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/angular/myinterestbook.js"></script>
+<link rel='stylesheet' href='/bootstrap/css/bootstrap.min.css' />
+</head>
+<body ng-controller="interestbookCtrl">
+	<div class="row" align=center>
+		<img src="/images/interestbook.jpg" alt="interestbook" width="500"
+			height="150" align="middle">
+	</div>
+	<div class="row" align=center>
+		<div class="row">
+			<div class="col-md-3"></div>
+
+			<div class="col-md-6">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Login Here</div>
+					<div class="panel-body">
+						<table>
+							<tr>
+								<td>User Name</td>
+							</tr>
+							<tr>
+								<td><input type="text" name="username" ng-model="username"></td>
+							</tr>
+							<tr>
+								<td>Password</td>
+							</tr>
+							<tr>
+								<td><input type="password" name="password"
+									ng-model="password"></td>
+							</tr>
+							<tr>
+								<td><input type="submit" ng-click="login()" /></td>
+							</tr>
+							<div class="alert alert-danger" ng-hide="invalid_login">
+								<strong>Incorrect username or password</strong>
+							</div>
+
+						</table>
+						</form>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">Signup Here</div>
+					<div class="panel-body">
+						<div class="row">
+							<table>
+								<tr>
+									<td>First Name:</td>
+									<td><input type="text" name="firstname" required
+										ng-model="firstname" /></td>
+								</tr>
+								<tr>
+								</tr>
+								<tr>
+									<td>Last Name:</td>
+									<td><input type="text" name="lastname" required
+										ng-model="lastname" /></td>
+								</tr>
+								<tr>
+								</tr>
+								<tr>
+									<td>User Name:</td>
+									<td><input type="text" name="reg_username" required
+										ng-model="reg_username" /></td>
+
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Password:</td>
+									<td><input type="password" name="reg_password" required
+										ng-model="reg_password" /></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td align=center><input type="submit" ng-click="signup();"></td>
+								</tr>
+								<div class="alert alert-danger" ng-hide="invalid_signup">
+								<strong>This User Has Been taken!</strong>
+							</div>
+
+							</table>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</body>
+</html>

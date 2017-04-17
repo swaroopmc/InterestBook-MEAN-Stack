@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="interestbookApp">
+<head>
+<script src="/angular/jquery.mini.js"></script>
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular-animate.js"></script>
+<script src="/angular/ui-bootstrap-tpls-0.13.4.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/angular/userInfo.js"></script>
+<link rel='stylesheet' href='/bootstrap/css/bootstrap.min.css' />
+</head>
+<body ng-controller="interestbookCtrl">
+	<div class="row" align=center>
+		<img src="/images/interestbook.jpg" alt="interestbook" width="500"
+			height="150" align="middle">
+	</div>
+	<div class="row" align=center>
+		<div class="col-md-3"></div>
+
+		<div class="col-md-6">s
+			<div class="panel panel-primary">
+				<div class="panel-heading">Write Something About you</div>
+				<div class="panel-body">
+						<table>
+							<tr>
+								<td>Overview</td>
+							</tr>
+							<tr>
+								<td><textarea name="overview" cols="40" rows="4" ng-model="overview"></textarea></td>
+							</tr>
+							<tr>
+								<td>Work</td>
+							</tr>
+							<tr>
+								<td><input type="text" name="work" ng-model="work"></td>
+							</tr>
+							<tr>
+							<tr>
+								<td>Education</td>
+							</tr>
+							<tr>
+								<td><input type="text" name="education" ng-model="education"></td>
+							</tr>
+							<tr>
+								<td>Email</td>
+							</tr>
+							<tr>
+								<td><input type="text" name="email" ng-model="email"></td>
+							</tr>
+
+							<tr>
+								<td><input type="submit" value="Submit" ng-click="userInfo()"/></td>
+							</tr>
+						</table>
+					</form>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</body>
+</html>

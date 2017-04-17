@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html ng-app="interestApp">
+<head>
+<script src="/angular/jquery.mini.js"></script>
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular-animate.js"></script>
+<script src="/angular/ui-bootstrap-tpls-0.13.4.min.js"></script>
+<script src="/angular/ui-bootstrap-tpls-0.14.2.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/angular/interest.js"></script>
+<link rel='stylesheet' href='/bootstrap/css/bootstrap.min.css' />
+<title><%=title%></title>
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-4" align=center>Hi, <%=firstname%>
+			<%=lastname%></div>
+		<div class="col-md-7" align=center>
+			<form action="logout" method="post">
+			<button type="submit">Log Out</button>
+			</form>
+		</div>
+	</div>
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<ul class="nav nav-tabs">
+			<li role="presentation" ><a href="homepage">Home
+					Page</a></li>
+			<li role="presentation"><a href="about">About</a></li>
+			<li role="presentation" class="active"><a href="interest">Interest</a></li>
+			<li role="presentation"><a href="friend">Friends</a></li>
+
+		</ul>
+	</div>
+	<div class="col-md-2"></div>
+	<div ng-controller="interestCtrl" id="main">
+		<div class="container" align=center>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<script type="text/ng-template" id="group-template.html">
+    <div class="panel {{panelClass || 'panel-default'}}">
+      <div class="panel-heading">
+        <h4 class="panel-title" style="color:#fa39c3">
+          <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading"><span
+            ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
+        </h4>
+      </div>
+      <div class="panel-collapse collapse" uib-collapse="!isOpen">
+        <div class="panel-body" style="text-align: right" ng-transclude></div>
+      </div>
+    </div>
+  </script>
+					<div class="checkbox">
+						<label> <input type="checkbox" ng-model="oneAtATime">
+							Open only one at a time
+						</label>
+					</div>
+					<uib-accordion close-others="oneAtATime"> <uib-accordion-group
+						heading="Movies">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img src="/images/inside_out.png" alt="Inside Out" height="300"
+									width="300">
+								<div class="caption">
+									<h3>Inside Out</h3>
+									<input type="checkbox" id="inside_out" onchange="check()">Add
+									<br>
+
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img src="/images/twilight.jpg" alt="Twilight" height="300"
+									width="300">
+								<div class="caption">
+									<h3>Twilight</h3>
+									<input type="checkbox" id="twilight" onchange="check()">Add
+									<br>
+
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img src="/images/king_speech.jpg" alt="King Speech"
+									height="300" width="300">
+								<div class="caption">
+									<h3>King Speech</h3>
+									<input type="checkbox" id="king_speech" onchange="check()">Add
+									<br>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					</uib-accordion-group> <uib-accordion-group heading="Sports">
+					<div class="col-md-4">
+						<div class="thumbnail">
+							<img src="/images/nba.png" alt="NBA" height="300" width="300">
+							<div class="caption">
+								<h3>NBA</h3>
+								<input type="checkbox" id="nba" onchange="check()">Add <br>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="thumbnail">
+							<img src="/images/nfj.jpg" alt="NFL" height="300" width="300">
+							<div class="caption">
+								<h3>NFL</h3>
+								<input type="checkbox" id="nfl" onchange="check()">Add <br>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="thumbnail">
+							<img src="/images/mlb.png" alt="MLB" height="300" width="300">
+							<div class="caption">
+								<h3>MLB</h3>
+								<input type="checkbox" id="mlb" onchange="check()">Add <br>
+
+							</div>
+						</div>
+					</div>
+					</uib-accordion-group> <uib-accordion-group heading="Book">
+					<div class="col-md-4">
+						<div class="thumbnail">
+							<img src="/images/harry_potter.jpg" alt="Harry Potter"
+								height="300" width="300">
+							<div class="caption">
+								<h3>Harry Potter</h3>
+								<input type="checkbox" id="harry_potter" onchange="check()">Add
+								<br>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="thumbnail">
+							<img src="/images/Lok.jpg" alt="Lord of Ring" height="300"
+								width="300">
+							<div class="caption">
+								<h3>Lord of Ring</h3>
+								<input type="checkbox" id="lord_of_king" onchange="check()">Add
+								<br>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="thumbnail">
+							<img src="/images/gone_girl.jpg" alt="Gone Girl" height="300"
+								width="300">
+							<div class="caption">
+								<h3>Gone Girl</h3>
+								<input type="checkbox" id="gone_girl" onchange="check()">Add
+								<br>
+
+							</div>
+						</div>
+					</div>
+					</uib-accordion-group> </uib-accordion>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+			<button type="button" class="btn btn-primary btn-lg"
+				ng-click="addInterest()">Add to Interest</button>
+		</div>
+	</div>
+
+</body>
+</html>

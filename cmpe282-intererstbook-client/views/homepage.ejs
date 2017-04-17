@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="homepageApp">
+<head>
+<script src="/angular/jquery.mini.js"></script>
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular-animate.js"></script>
+<script src="/angular/ui-bootstrap-tpls-0.13.4.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/angular/myHomepage.js"></script>
+<link rel='stylesheet' href='/bootstrap/css/bootstrap.min.css' />
+<title><%=title%></title>
+</head>
+<body ng-controller="homepageCtrl">
+	<div class="row">
+		<div class="col-md-4" align=center>Hi, <%=firstname%>
+			<%=lastname%></div>
+		<div class="col-md-7" align=center>
+		<form action="logout" method="post">
+			<button type="submit">Log Out</button>
+			</form>
+		</div>
+	</div>
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<ul class="nav nav-tabs">
+			<li role="presentation" class="active"><a href="homepage">Home
+					Page</a></li>
+			<li role="presentation"><a href="about">About</a></li>
+			<li role="presentation"><a href="interest">Interest</a></li>
+			<li role="presentation"><a href="friend">Friends</a></li>
+		</ul>
+	</div>
+	<div class="col-md-2"></div>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<div class="input-group">
+					<div class="input-group-btn">
+						<input type="text" class="form-control" name="news"
+							placeholder="Add Some News..." aria-label="..." ng-model="news">
+						<button type="submit" class="btn btn-default" ng-click="addNews()">Add</button>
+					</div>
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row">
+
+		<div class="col-md-2" ng-model="title"></div>
+		<div class="col-md-8">
+			<h1>{{title}}</h1>
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="interest in interestList">
+					{{interest.name}} is interesting on {{interest.interest}}</li>
+					<li class="list-group-item" ng-repeat="news in newsList">
+					{{news.name}} posted {{news.news}}</li>
+			</ul>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	
+</body>
+</html>
